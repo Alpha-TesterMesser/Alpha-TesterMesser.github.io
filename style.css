@@ -1,3 +1,18 @@
+.scroll-watcher {
+    height: 10px;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    background-color: lime;
+    width: 100%;
+    scale: .5 1;
+}
+
+@animation scroll-watcher {
+    to { scale 1 1; }
+}
+
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
