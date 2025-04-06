@@ -1,0 +1,66 @@
+import random
+
+def generate_event():
+    events = [
+        ("Economic Boom", 10),
+        ("Recession", -10),
+        ("Political Stability", 5),
+        ("Political Crisis", -10),
+        ("Major Technological Breakthrough", 15),
+        ("Cyber Attack on Infrastructure", -8),
+        ("Successful Foreign Diplomacy", 7),
+        ("Military Conflict", -12),
+        ("Civil Unrest", -10),
+        ("Environmental Disaster", -8)
+    ]
+    return random.choice(events)
+
+def make_decision():
+    decisions = {
+        "Invest in Technology": 10,
+        "Increase Military Spending": 5,
+        "Focus on Diplomacy": 7,
+        "Improve Social Programs": 8,
+        "Cut Taxes on Businesses": 6,
+        "Do Nothing": 0
+    }
+    print("Choose a policy decision:")
+    for i, decision in enumerate(decisions.keys(), 1):
+        print(f"{i}. {decision}")
+    
+    choice = input("Enter the number of your decision: ")
+    try:
+        choice = int(choice)
+        if 1 <= choice <= len(decisions):
+            return list(decisions.values())[choice - 1]
+        else:
+            print("Invalid choice, no effect this round.")
+            return 0
+    except ValueError:
+        print("Invalid input, no effect this round.")
+        return 0
+
+def simulate_superpower(years=100):
+    stability = 100  # Starting stability score
+    year = 2025
+    
+    for _ in range(years // 10):
+        print(f"\nYear: {year}")
+        event, impact = generate_event()
+        print(f"Event: {event} ({impact} Stability)")
+        stability += impact
+        
+        decision_impact = make_decision()
+        stability += decision_impact
+        
+        print(f"Stability Score: {stability}\n")
+        
+        if stability <= 0:
+            print("The U.S. has collapsed as a superpower.")
+            return
+        
+        year += 10
+    
+    print("The simulation is complete. The U.S. remains a superpower with stability at:", stability)
+
+simulate_superpower()
