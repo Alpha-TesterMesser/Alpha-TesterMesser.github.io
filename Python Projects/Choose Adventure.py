@@ -79,8 +79,4 @@ def riddle():
         print("The man snaps his fingers, and disappears, a few seconds later, you get teleported to the entrance of the temple.")
         goinornot()
         
-<<<<<<< HEAD
 go_in_or_not()
-=======
-go_in_or_not()
->>>>>>> 9739b5d518057b9ea8c5471aa32ba2736c735157
