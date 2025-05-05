@@ -1,39 +1,28 @@
-.scroll-watcher {
-    height: 10px;
-    position: fixed;
-    top: 0;
-    z-index: 1000;
-    background-color: lime;
-    width: 100%;
-    scale: .5 1;
-}
-
-@animation scroll-watcher {
-    to { scale 1 1; }
-}
-
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: rgb(105, 162, 227);
-}
-
-h1, h2, h3, h4, h5, h6 {
-    margin: 10px;
-    padding: 15px;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-}
-
-p {
-    margin: 10px;
-    padding: 10px;
-}
-
-.container {
-    width: 100%;
-    margin: 0 auto;
-    padding: 20px;
-}
+@media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: scroll()) {
+      .body {
+        padding-top: 1rem;
+      }
+  
+      .scroll-watcher {
+        height: 1rem;
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1000;
+        background-color: var(--timeline);
+        scale: 0 1;
+        transform-origin: left;
+  
+        animation: scroll-watcher linear;
+        animation-timeline: scroll();
+      }
+  
+      @keyframes scroll-watcher {
+        to {
+          scale: 1 1;
+        }
+      }
+    }
+  }
